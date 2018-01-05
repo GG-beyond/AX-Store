@@ -21,9 +21,11 @@
 		7E14090D1FFF669300D7FFA3 /* AXRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E14090C1FFF669300D7FFA3 /* AXRecommendViewController.m */; };
 		7E1409111FFF68AA00D7FFA3 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1409101FFF68AA00D7FFA3 /* UIColor+Theme.m */; };
 		7E1409161FFF729100D7FFA3 /* AppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1409151FFF729100D7FFA3 /* AppTableViewCell.m */; };
+		ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AX Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1408DD1FFF5CA600D7FFA3 /* AX Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AX Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1408E01FFF5CA600D7FFA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E1408E11FFF5CA600D7FFA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		7E1409101FFF68AA00D7FFA3 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
 		7E1409141FFF729100D7FFA3 /* AppTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppTableViewCell.h; sourceTree = "<group>"; };
 		7E1409151FFF729100D7FFA3 /* AppTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTableViewCell.m; sourceTree = "<group>"; };
+		DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.release.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.release.xcconfig"; sourceTree = "<group>"; };
+		F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,8 @@
 			children = (
 				7E1408DF1FFF5CA600D7FFA3 /* AX Store */,
 				7E1408DE1FFF5CA600D7FFA3 /* Products */,
+				A1DBBD97BBB5028762190282 /* Pods */,
+				987C18771381BF687E4E3B38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +184,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		987C18771381BF687E4E3B38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1DBBD97BBB5028762190282 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */,
+				DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,9 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E1408F31FFF5CA600D7FFA3 /* Build configuration list for PBXNativeTarget "AX Store" */;
 			buildPhases = (
+				02827246CACDA152D8D34B09 /* [CP] Check Pods Manifest.lock */,
 				7E1408D91FFF5CA600D7FFA3 /* Sources */,
 				7E1408DA1FFF5CA600D7FFA3 /* Frameworks */,
 				7E1408DB1FFF5CA600D7FFA3 /* Resources */,
+				AC497E1FDB3A4574F4C678C9 /* [CP] Embed Pods Frameworks */,
+				6F7DABD85242F4101200BFA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +269,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02827246CACDA152D8D34B09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AX Store-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F7DABD85242F4101200BFA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AX Store/Pods-AX Store-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC497E1FDB3A4574F4C678C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AX Store/Pods-AX Store-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E1408D91FFF5CA600D7FFA3 /* Sources */ = {
@@ -390,6 +468,7 @@
 		};
 		7E1408F41FFF5CA600D7FFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -406,6 +485,7 @@
 		};
 		7E1408F51FFF5CA600D7FFA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
