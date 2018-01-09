@@ -14,13 +14,24 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.14)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - Masonry (~> 1.1.0)
+  - MJRefresh (~> 3.1.14)
+  - SDWebImage (~> 4.1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
 
-PODFILE CHECKSUM: a700d038dd6b5705611acaa51d072fe397d61693
+PODFILE CHECKSUM: d6fcb389f8e8eeb02aadecbaa508d8edd130144b
 
 COCOAPODS: 1.3.1

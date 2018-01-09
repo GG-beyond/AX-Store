@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppModel.h"
 
 @interface AppTableViewCell : UITableViewCell
+- (void)setContentCellWithAppInfo:(AppModel *)model;
 
 @end

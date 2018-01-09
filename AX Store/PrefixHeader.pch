@@ -9,6 +9,11 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import <AFNetworking.h>
+#import "NSObject+Category.h"
+#import "UIColor+Theme.h"
+#import "NSString+Size.h"
+#import <UIImageView+WebCache.h>
 //Nav和Tabbar高度
 #define NAVBARHEIGHT ({float i; if(iPhoneX){i = 88;} else {i = 64;} i;})
 #define TABHEIGHT ({float i; if(iPhoneX){i = 83;} else {i = 49;} i;})
@@ -18,4 +23,9 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 //当前设备的屏幕高度
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//蒲公英开发 的 API_Key
+#define APIKey @"41863e1af0e2525f4d8bf5bb898718a7"
+#define USERKey @"88bea37768ec291669f6cdab0fff4093"
+
 #endif /* PrefixHeader_pch */

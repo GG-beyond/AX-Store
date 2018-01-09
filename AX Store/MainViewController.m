@@ -12,7 +12,6 @@
 #import "AXRankViewController.h"
 #import "AXSearchViewController.h"
 #import "AXUpdateViewController.h"
-#import "UIColor+Theme.h"
 #import <objc/runtime.h>
 
 @interface MainViewController ()

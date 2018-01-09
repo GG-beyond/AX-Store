@@ -21,6 +21,14 @@
 		7E14090D1FFF669300D7FFA3 /* AXRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E14090C1FFF669300D7FFA3 /* AXRecommendViewController.m */; };
 		7E1409111FFF68AA00D7FFA3 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1409101FFF68AA00D7FFA3 /* UIColor+Theme.m */; };
 		7E1409161FFF729100D7FFA3 /* AppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1409151FFF729100D7FFA3 /* AppTableViewCell.m */; };
+		7EA111D42003567800D05D2F /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111D32003567800D05D2F /* BaseViewModel.m */; };
+		7EA111D72003568C00D05D2F /* UpdateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111D62003568C00D05D2F /* UpdateViewModel.m */; };
+		7EA111DB200356C700D05D2F /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111DA200356C700D05D2F /* BaseModel.m */; };
+		7EA111DE200356EF00D05D2F /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111DD200356EF00D05D2F /* AppModel.m */; };
+		7EA111E120035E6C00D05D2F /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111E020035E6B00D05D2F /* NSObject+Category.m */; };
+		7EA111E720036A9D00D05D2F /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111E620036A9D00D05D2F /* NSString+Size.m */; };
+		7EA111EA2003724D00D05D2F /* UITableView+Fit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111E92003724D00D05D2F /* UITableView+Fit.m */; };
+		7EA111ED2003730800D05D2F /* PlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111EC2003730800D05D2F /* PlaceHolderView.m */; };
 		ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +61,22 @@
 		7E1409101FFF68AA00D7FFA3 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
 		7E1409141FFF729100D7FFA3 /* AppTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppTableViewCell.h; sourceTree = "<group>"; };
 		7E1409151FFF729100D7FFA3 /* AppTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTableViewCell.m; sourceTree = "<group>"; };
+		7EA111D22003567800D05D2F /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		7EA111D32003567800D05D2F /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		7EA111D52003568C00D05D2F /* UpdateViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateViewModel.h; sourceTree = "<group>"; };
+		7EA111D62003568C00D05D2F /* UpdateViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateViewModel.m; sourceTree = "<group>"; };
+		7EA111D9200356C700D05D2F /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		7EA111DA200356C700D05D2F /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		7EA111DC200356EF00D05D2F /* AppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
+		7EA111DD200356EF00D05D2F /* AppModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
+		7EA111DF20035E6B00D05D2F /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
+		7EA111E020035E6B00D05D2F /* NSObject+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
+		7EA111E520036A9D00D05D2F /* NSString+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		7EA111E620036A9D00D05D2F /* NSString+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		7EA111E82003724D00D05D2F /* UITableView+Fit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Fit.h"; sourceTree = "<group>"; };
+		7EA111E92003724D00D05D2F /* UITableView+Fit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Fit.m"; sourceTree = "<group>"; };
+		7EA111EB2003730800D05D2F /* PlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderView.h; sourceTree = "<group>"; };
+		7EA111EC2003730800D05D2F /* PlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderView.m; sourceTree = "<group>"; };
 		DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.release.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.release.xcconfig"; sourceTree = "<group>"; };
 		F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +120,7 @@
 				7E1408E41FFF5CA600D7FFA3 /* ViewController.m */,
 				7E1408F61FFF5D8500D7FFA3 /* MainViewController.h */,
 				7E1408F71FFF5D8500D7FFA3 /* MainViewController.m */,
+				7EA111D12003552500D05D2F /* Base */,
 				7E14090E1FFF685B00D7FFA3 /* Category */,
 				7E1408F91FFF5DF500D7FFA3 /* Recommendation精品推荐 */,
 				7E1408FA1FFF5E5A00D7FFA3 /* Kind类别 */,
@@ -153,6 +178,7 @@
 			children = (
 				7E1408FF1FFF665000D7FFA3 /* AXUpdateViewController.h */,
 				7E1409001FFF665000D7FFA3 /* AXUpdateViewController.m */,
+				7EA111D8200356AF00D05D2F /* Model */,
 				7E1409131FFF723900D7FFA3 /* ViewModel */,
 				7E1409121FFF722900D7FFA3 /* View */,
 			);
@@ -164,6 +190,14 @@
 			children = (
 				7E14090F1FFF68AA00D7FFA3 /* UIColor+Theme.h */,
 				7E1409101FFF68AA00D7FFA3 /* UIColor+Theme.m */,
+				7EA111DF20035E6B00D05D2F /* NSObject+Category.h */,
+				7EA111E020035E6B00D05D2F /* NSObject+Category.m */,
+				7EA111E520036A9D00D05D2F /* NSString+Size.h */,
+				7EA111E620036A9D00D05D2F /* NSString+Size.m */,
+				7EA111E82003724D00D05D2F /* UITableView+Fit.h */,
+				7EA111E92003724D00D05D2F /* UITableView+Fit.m */,
+				7EA111EB2003730800D05D2F /* PlaceHolderView.h */,
+				7EA111EC2003730800D05D2F /* PlaceHolderView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -180,8 +214,30 @@
 		7E1409131FFF723900D7FFA3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7EA111D52003568C00D05D2F /* UpdateViewModel.h */,
+				7EA111D62003568C00D05D2F /* UpdateViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7EA111D12003552500D05D2F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7EA111D22003567800D05D2F /* BaseViewModel.h */,
+				7EA111D32003567800D05D2F /* BaseViewModel.m */,
+				7EA111D9200356C700D05D2F /* BaseModel.h */,
+				7EA111DA200356C700D05D2F /* BaseModel.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7EA111D8200356AF00D05D2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EA111DC200356EF00D05D2F /* AppModel.h */,
+				7EA111DD200356EF00D05D2F /* AppModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		987C18771381BF687E4E3B38 /* Frameworks */ = {
@@ -295,9 +351,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AX Store/Pods-AX Store-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,16 +386,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1409011FFF665000D7FFA3 /* AXUpdateViewController.m in Sources */,
+				7EA111D42003567800D05D2F /* BaseViewModel.m in Sources */,
 				7E1409111FFF68AA00D7FFA3 /* UIColor+Theme.m in Sources */,
 				7E14090D1FFF669300D7FFA3 /* AXRecommendViewController.m in Sources */,
+				7EA111D72003568C00D05D2F /* UpdateViewModel.m in Sources */,
 				7E1409161FFF729100D7FFA3 /* AppTableViewCell.m in Sources */,
 				7E1408E51FFF5CA600D7FFA3 /* ViewController.m in Sources */,
+				7EA111DE200356EF00D05D2F /* AppModel.m in Sources */,
 				7E1408F01FFF5CA600D7FFA3 /* main.m in Sources */,
 				7E1408E21FFF5CA600D7FFA3 /* AppDelegate.m in Sources */,
+				7EA111E720036A9D00D05D2F /* NSString+Size.m in Sources */,
 				7E1409071FFF667600D7FFA3 /* AXRankViewController.m in Sources */,
+				7EA111DB200356C700D05D2F /* BaseModel.m in Sources */,
 				7E1408F81FFF5D8500D7FFA3 /* MainViewController.m in Sources */,
 				7E1409041FFF666600D7FFA3 /* AXSearchViewController.m in Sources */,
+				7EA111ED2003730800D05D2F /* PlaceHolderView.m in Sources */,
 				7E14090A1FFF668400D7FFA3 /* AXKindViewController.m in Sources */,
+				7EA111E120035E6C00D05D2F /* NSObject+Category.m in Sources */,
+				7EA111EA2003724D00D05D2F /* UITableView+Fit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
