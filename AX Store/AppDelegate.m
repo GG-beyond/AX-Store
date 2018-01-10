@@ -17,10 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    
     if (@available(iOS 11,*)) {
         
         [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }else{
+        
     }
 
     self.window.rootViewController = [MainViewController new];

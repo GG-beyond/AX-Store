@@ -29,6 +29,13 @@
 		7EA111E720036A9D00D05D2F /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111E620036A9D00D05D2F /* NSString+Size.m */; };
 		7EA111EA2003724D00D05D2F /* UITableView+Fit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111E92003724D00D05D2F /* UITableView+Fit.m */; };
 		7EA111ED2003730800D05D2F /* PlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111EC2003730800D05D2F /* PlaceHolderView.m */; };
+		7EA111FB2005B96300D05D2F /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111FA2005B96300D05D2F /* AppManager.m */; };
+		7EA111FE2005BE4A00D05D2F /* BaseAppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA111FD2005BE4A00D05D2F /* BaseAppTableViewCell.m */; };
+		7EA112012005C15D00D05D2F /* LocalAppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112002005C15D00D05D2F /* LocalAppTableViewCell.m */; };
+		7EA112042005C3BC00D05D2F /* LocalAppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112032005C3BC00D05D2F /* LocalAppModel.m */; };
+		7EA112072005D78400D05D2F /* LocalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112062005D78400D05D2F /* LocalViewModel.m */; };
+		7EA1120A2005FED100D05D2F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112092005FED100D05D2F /* BaseViewController.m */; };
+		7EA1120C2006126E00D05D2F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA1120B2006126200D05D2F /* MobileCoreServices.framework */; };
 		ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +84,19 @@
 		7EA111E92003724D00D05D2F /* UITableView+Fit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Fit.m"; sourceTree = "<group>"; };
 		7EA111EB2003730800D05D2F /* PlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderView.h; sourceTree = "<group>"; };
 		7EA111EC2003730800D05D2F /* PlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderView.m; sourceTree = "<group>"; };
+		7EA111F92005B96300D05D2F /* AppManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		7EA111FA2005B96300D05D2F /* AppManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		7EA111FC2005BE4A00D05D2F /* BaseAppTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAppTableViewCell.h; sourceTree = "<group>"; };
+		7EA111FD2005BE4A00D05D2F /* BaseAppTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAppTableViewCell.m; sourceTree = "<group>"; };
+		7EA111FF2005C15D00D05D2F /* LocalAppTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalAppTableViewCell.h; sourceTree = "<group>"; };
+		7EA112002005C15D00D05D2F /* LocalAppTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalAppTableViewCell.m; sourceTree = "<group>"; };
+		7EA112022005C3BC00D05D2F /* LocalAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalAppModel.h; sourceTree = "<group>"; };
+		7EA112032005C3BC00D05D2F /* LocalAppModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalAppModel.m; sourceTree = "<group>"; };
+		7EA112052005D78400D05D2F /* LocalViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalViewModel.h; sourceTree = "<group>"; };
+		7EA112062005D78400D05D2F /* LocalViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalViewModel.m; sourceTree = "<group>"; };
+		7EA112082005FED100D05D2F /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		7EA112092005FED100D05D2F /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		7EA1120B2006126200D05D2F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.release.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.release.xcconfig"; sourceTree = "<group>"; };
 		F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA1120C2006126E00D05D2F /* MobileCoreServices.framework in Frameworks */,
 				ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +181,9 @@
 			children = (
 				7E1409051FFF667600D7FFA3 /* AXRankViewController.h */,
 				7E1409061FFF667600D7FFA3 /* AXRankViewController.m */,
+				7EA111F82005B92B00D05D2F /* Model */,
+				7EA111F72005B91700D05D2F /* ViewModel */,
+				7EA111F62005B90600D05D2F /* View */,
 			);
 			path = "Rank排行榜";
 			sourceTree = "<group>";
@@ -207,6 +231,8 @@
 			children = (
 				7E1409141FFF729100D7FFA3 /* AppTableViewCell.h */,
 				7E1409151FFF729100D7FFA3 /* AppTableViewCell.m */,
+				7EA111FC2005BE4A00D05D2F /* BaseAppTableViewCell.h */,
+				7EA111FD2005BE4A00D05D2F /* BaseAppTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,6 +253,8 @@
 				7EA111D32003567800D05D2F /* BaseViewModel.m */,
 				7EA111D9200356C700D05D2F /* BaseModel.h */,
 				7EA111DA200356C700D05D2F /* BaseModel.m */,
+				7EA112082005FED100D05D2F /* BaseViewController.h */,
+				7EA112092005FED100D05D2F /* BaseViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -240,9 +268,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7EA111F62005B90600D05D2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7EA111FF2005C15D00D05D2F /* LocalAppTableViewCell.h */,
+				7EA112002005C15D00D05D2F /* LocalAppTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7EA111F72005B91700D05D2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7EA112052005D78400D05D2F /* LocalViewModel.h */,
+				7EA112062005D78400D05D2F /* LocalViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7EA111F82005B92B00D05D2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EA111F92005B96300D05D2F /* AppManager.h */,
+				7EA111FA2005B96300D05D2F /* AppManager.m */,
+				7EA112022005C3BC00D05D2F /* LocalAppModel.h */,
+				7EA112032005C3BC00D05D2F /* LocalAppModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		987C18771381BF687E4E3B38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EA1120B2006126200D05D2F /* MobileCoreServices.framework */,
 				70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */,
 			);
 			name = Frameworks;
@@ -387,6 +445,7 @@
 			files = (
 				7E1409011FFF665000D7FFA3 /* AXUpdateViewController.m in Sources */,
 				7EA111D42003567800D05D2F /* BaseViewModel.m in Sources */,
+				7EA112072005D78400D05D2F /* LocalViewModel.m in Sources */,
 				7E1409111FFF68AA00D7FFA3 /* UIColor+Theme.m in Sources */,
 				7E14090D1FFF669300D7FFA3 /* AXRecommendViewController.m in Sources */,
 				7EA111D72003568C00D05D2F /* UpdateViewModel.m in Sources */,
@@ -394,16 +453,21 @@
 				7E1408E51FFF5CA600D7FFA3 /* ViewController.m in Sources */,
 				7EA111DE200356EF00D05D2F /* AppModel.m in Sources */,
 				7E1408F01FFF5CA600D7FFA3 /* main.m in Sources */,
+				7EA112012005C15D00D05D2F /* LocalAppTableViewCell.m in Sources */,
+				7EA1120A2005FED100D05D2F /* BaseViewController.m in Sources */,
 				7E1408E21FFF5CA600D7FFA3 /* AppDelegate.m in Sources */,
 				7EA111E720036A9D00D05D2F /* NSString+Size.m in Sources */,
 				7E1409071FFF667600D7FFA3 /* AXRankViewController.m in Sources */,
 				7EA111DB200356C700D05D2F /* BaseModel.m in Sources */,
 				7E1408F81FFF5D8500D7FFA3 /* MainViewController.m in Sources */,
 				7E1409041FFF666600D7FFA3 /* AXSearchViewController.m in Sources */,
+				7EA111FE2005BE4A00D05D2F /* BaseAppTableViewCell.m in Sources */,
 				7EA111ED2003730800D05D2F /* PlaceHolderView.m in Sources */,
 				7E14090A1FFF668400D7FFA3 /* AXKindViewController.m in Sources */,
 				7EA111E120035E6C00D05D2F /* NSObject+Category.m in Sources */,
 				7EA111EA2003724D00D05D2F /* UITableView+Fit.m in Sources */,
+				7EA112042005C3BC00D05D2F /* LocalAppModel.m in Sources */,
+				7EA111FB2005B96300D05D2F /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -526,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

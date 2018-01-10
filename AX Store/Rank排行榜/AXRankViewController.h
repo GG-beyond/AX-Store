@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface AXRankViewController : UIViewController
+@interface AXRankViewController : BaseViewController
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AXUpdateViewController : UIViewController
+#import "BaseViewController.h"
+@interface AXUpdateViewController : BaseViewController
 
 @end

@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *buildFileSize;//大小
 @property (nonatomic, strong) NSString *buildCreated;//日期
 @property (nonatomic, strong) NSString *buildKey;//buildKey
-@property (nonatomic, strong) NSString *buildIdentifier;//app buildId
+@property (nonatomic, strong) NSString *buildIdentifier;//app buildId 唯一标识
 @property (nonatomic, strong) NSString *buildBuildVersion;//更新
 @end

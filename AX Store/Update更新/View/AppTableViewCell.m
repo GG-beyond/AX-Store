@@ -7,14 +7,8 @@
 //
 
 #import "AppTableViewCell.h"
+#import "AppModel.h"
 @interface AppTableViewCell ()
-
-@property (nonatomic, strong) UIImageView *appImageView;
-@property (nonatomic, strong) UILabel *appNameLabel;
-@property (nonatomic, strong) UILabel *appDesLabel;
-@property (nonatomic, strong) UILabel *appDateLabel;
-@property (nonatomic, strong) UIButton *appUpdateButton;
-@property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) NSDictionary *appInfo;
 
 @end
@@ -25,34 +19,21 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self addSubview:self.appImageView];
-        [self addSubview:self.appNameLabel];
-        [self addSubview:self.appDesLabel];
-        [self addSubview:self.appDateLabel];
-        [self addSubview:self.appUpdateButton];
-        [self addSubview:self.bottomLine];
-    }
-    return self;
-}
+
 #pragma mark - method
-- (void)setContentCellWithAppInfo:(AppModel *)model{
+- (void)setContentCellWithAppInfo:(id)model{
+    AppModel *mod = (AppModel *)model;
+    self.appNameLabel.text = mod.buildName;
+    self.appDesLabel.text = [NSString stringWithFormat:@"版本 %@，%@MB",mod.buildVersion,[NSString getSize:mod.buildFileSize]];
+    self.appDateLabel.text = mod.buildCreated;
     
-    self.appNameLabel.text = model.buildName;
-    self.appDesLabel.text = [NSString stringWithFormat:@"版本 %@，%@MB",model.buildVersion,[NSString getSize:model.buildFileSize]];
-    self.appDateLabel.text = model.buildCreated;
-    
-    NSString *urlStr = [NSString stringWithFormat:@"https://www.pgyer.com/image/view/app_icons/%@",model.buildIcon];
+    NSString *urlStr = [NSString stringWithFormat:@"https://www.pgyer.com/image/view/app_icons/%@",mod.buildIcon];
     NSURL *url = [NSURL URLWithString:urlStr];
     [self.appImageView sd_setImageWithURL:url placeholderImage:nil];
-    NSString *appKey = [self matchStr:model.buildIdentifier];
+    NSString *appKey = [self matchStr:mod.buildIdentifier];
     //多线程请求是否需要更新
     
-    NSInteger buildVersion = [model.buildBuildVersion integerValue];
+    NSInteger buildVersion = [mod.buildBuildVersion integerValue];
     dispatch_queue_t queue= dispatch_queue_create("update.queue", DISPATCH_QUEUE_CONCURRENT);
     __weak typeof(self)weakSelf = self;
     dispatch_async(queue, ^{
@@ -87,70 +68,6 @@
         
         self.appUpdateButton.hidden = NO;
     });
-}
-#pragma mark - SETTER方法
-- (UIImageView *)appImageView{
-    
-    if (!_appImageView) {
-        
-        _appImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
-        _appImageView.layer.cornerRadius = 15;
-        _appImageView.layer.masksToBounds = YES;
-    }
-    return _appImageView;
-}
-- (UILabel *)appNameLabel{
-    
-    if (!_appNameLabel) {
-        
-        _appNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 13, SCREEN_WIDTH - 80 - 60, 15)];
-        _appNameLabel.textColor = [UIColor hexColor:@"#262a3b"];
-        _appNameLabel.font = [UIFont systemFontOfSize:15];
-    }
-    return _appNameLabel;
-}
-- (UILabel *)appDesLabel{
-    
-    if (!_appDesLabel) {
-        
-        _appDesLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 35, SCREEN_WIDTH - 80 - 60, 13)];
-        _appDesLabel.textColor = [UIColor hexColor:@"#616579"];
-        _appDesLabel.font = [UIFont systemFontOfSize:13];
-    }
-    return _appDesLabel;
-}
-- (UILabel *)appDateLabel{
-    
-    if (!_appDateLabel) {
-        
-        _appDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 53, SCREEN_WIDTH - 80 - 60, 13)];
-        _appDateLabel.textColor = [UIColor hexColor:@"#616579"];
-        _appDateLabel.font = [UIFont systemFontOfSize:13];
-    }
-    return _appDateLabel;
-}
-- (UIButton *)appUpdateButton{
-    
-    if (!_appUpdateButton) {
-        
-        _appUpdateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _appUpdateButton.frame = CGRectMake(SCREEN_WIDTH - 50, 25, 40, 30);
-        [_appUpdateButton setTitle:@"更新" forState:UIControlStateNormal];
-        [_appUpdateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        _appUpdateButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        _appUpdateButton.hidden = YES;//默认关闭
-    }
-    return _appUpdateButton;
-}
-- (UIView *)bottomLine{
-    
-    if (!_bottomLine) {
-        
-        float scale = [UIScreen mainScreen].scale;
-        _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(10, 78, SCREEN_WIDTH - 10, 1.0/scale)];
-        _bottomLine.backgroundColor = [UIColor hexColor:@"#eff3f6"];
-    }
-    return _bottomLine;
 }
 - (NSDictionary *)appInfo{
     
