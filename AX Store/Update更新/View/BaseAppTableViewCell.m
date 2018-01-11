@@ -7,6 +7,7 @@
 //
 
 #import "BaseAppTableViewCell.h"
+#import "UIImage+Icon.h"
 @interface BaseAppTableViewCell ()
 @end
 @implementation BaseAppTableViewCell
@@ -57,7 +58,7 @@
     
     if (!_appDesLabel) {
         
-        _appDesLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 35, SCREEN_WIDTH - 80 - 60, 13)];
+        _appDesLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 35, SCREEN_WIDTH - 80 - 80, 13)];
         _appDesLabel.textColor = [UIColor hexColor:@"#616579"];
         _appDesLabel.font = [UIFont systemFontOfSize:13];
     }
@@ -67,7 +68,7 @@
     
     if (!_appDateLabel) {
         
-        _appDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 53, SCREEN_WIDTH - 80 - 60, 13)];
+        _appDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 53, SCREEN_WIDTH - 80 - 80, 13)];
         _appDateLabel.textColor = [UIColor hexColor:@"#616579"];
         _appDateLabel.font = [UIFont systemFontOfSize:13];
     }
@@ -78,11 +79,17 @@
     if (!_appUpdateButton) {
         
         _appUpdateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _appUpdateButton.frame = CGRectMake(SCREEN_WIDTH - 50, 25, 40, 30);
-        [_appUpdateButton setTitle:@"更新" forState:UIControlStateNormal];
-        [_appUpdateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        _appUpdateButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        _appUpdateButton.hidden = YES;//默认关闭
+        _appUpdateButton.frame = CGRectMake(SCREEN_WIDTH - 70, 25, 50, 27);
+        [_appUpdateButton setTitle:@"打开" forState:UIControlStateNormal];
+        [_appUpdateButton setTitleColor:[UIColor hexColor:@"#157EFB"] forState:UIControlStateNormal];
+        [_appUpdateButton addTarget:self action:@selector(doDownOrUpdate:) forControlEvents:UIControlEventTouchUpInside];
+        _appUpdateButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        UIImage *image = [UIImage createImageWithLineBgColor:[UIColor hexColor:@"#157EFB"] bgColor:[UIColor whiteColor] size:_appUpdateButton.bounds.size cornerRadius:3];
+        [_appUpdateButton setBackgroundImage:image forState:UIControlStateNormal];
+        
+        UIImage *hightImage = [UIImage createImageWithLineBgColor:[UIColor hexColor:@"#157EFB"] bgColor:[UIColor hexColor:@"#157EFB"] size:_appUpdateButton.bounds.size cornerRadius:3];
+        [_appUpdateButton setBackgroundImage:hightImage forState:UIControlStateHighlighted];
+
     }
     return _appUpdateButton;
 }
@@ -96,7 +103,9 @@
     }
     return _bottomLine;
 }
-
+- (void)doDownOrUpdate:(UIButton *)sender{
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

@@ -36,6 +36,7 @@
 		7EA112072005D78400D05D2F /* LocalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112062005D78400D05D2F /* LocalViewModel.m */; };
 		7EA1120A2005FED100D05D2F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA112092005FED100D05D2F /* BaseViewController.m */; };
 		7EA1120C2006126E00D05D2F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA1120B2006126200D05D2F /* MobileCoreServices.framework */; };
+		7EA1120F2007000400D05D2F /* UIImage+Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1120E2007000400D05D2F /* UIImage+Icon.m */; };
 		ACBC9BCC9C17C511A024CF1B /* libPods-AX Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C88C9C867B024F152E3CA0 /* libPods-AX Store.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,8 @@
 		7EA112082005FED100D05D2F /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7EA112092005FED100D05D2F /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7EA1120B2006126200D05D2F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7EA1120D2007000400D05D2F /* UIImage+Icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Icon.h"; sourceTree = "<group>"; };
+		7EA1120E2007000400D05D2F /* UIImage+Icon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Icon.m"; sourceTree = "<group>"; };
 		DD514A5D30B8443C7D4F57F6 /* Pods-AX Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.release.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.release.xcconfig"; sourceTree = "<group>"; };
 		F116D8CCA29204CD389A3A1E /* Pods-AX Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AX Store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AX Store/Pods-AX Store.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +144,7 @@
 				7E1408E41FFF5CA600D7FFA3 /* ViewController.m */,
 				7E1408F61FFF5D8500D7FFA3 /* MainViewController.h */,
 				7E1408F71FFF5D8500D7FFA3 /* MainViewController.m */,
+				7EA112102007365B00D05D2F /* Common */,
 				7EA111D12003552500D05D2F /* Base */,
 				7E14090E1FFF685B00D7FFA3 /* Category */,
 				7E1408F91FFF5DF500D7FFA3 /* Recommendation精品推荐 */,
@@ -220,6 +224,8 @@
 				7EA111E620036A9D00D05D2F /* NSString+Size.m */,
 				7EA111E82003724D00D05D2F /* UITableView+Fit.h */,
 				7EA111E92003724D00D05D2F /* UITableView+Fit.m */,
+				7EA1120D2007000400D05D2F /* UIImage+Icon.h */,
+				7EA1120E2007000400D05D2F /* UIImage+Icon.m */,
 				7EA111EB2003730800D05D2F /* PlaceHolderView.h */,
 				7EA111EC2003730800D05D2F /* PlaceHolderView.m */,
 			);
@@ -295,6 +301,13 @@
 				7EA112032005C3BC00D05D2F /* LocalAppModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7EA112102007365B00D05D2F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		987C18771381BF687E4E3B38 /* Frameworks */ = {
@@ -457,6 +470,7 @@
 				7EA1120A2005FED100D05D2F /* BaseViewController.m in Sources */,
 				7E1408E21FFF5CA600D7FFA3 /* AppDelegate.m in Sources */,
 				7EA111E720036A9D00D05D2F /* NSString+Size.m in Sources */,
+				7EA1120F2007000400D05D2F /* UIImage+Icon.m in Sources */,
 				7E1409071FFF667600D7FFA3 /* AXRankViewController.m in Sources */,
 				7EA111DB200356C700D05D2F /* BaseModel.m in Sources */,
 				7E1408F81FFF5D8500D7FFA3 /* MainViewController.m in Sources */,
@@ -608,7 +622,7 @@
 				INFOPLIST_FILE = "AX Store/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "anxindeli.AX-Store";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anxindeli.AXStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -625,7 +639,7 @@
 				INFOPLIST_FILE = "AX Store/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "anxindeli.AX-Store";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anxindeli.AXStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "AppManager.h"
 @interface AppDelegate ()
 
 @end
@@ -24,7 +25,7 @@
     }else{
         
     }
-
+    [AppManager sharedInstance];
     self.window.rootViewController = [MainViewController new];
     return YES;
 }

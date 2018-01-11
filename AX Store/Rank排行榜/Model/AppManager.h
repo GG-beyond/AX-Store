@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void (^Success)(NSArray *arr);
+typedef void (^Succ)(NSArray *arr);
 
 @interface AppManager : NSObject
 @property (nonatomic, strong) NSDictionary *appInfo;
 @property (nonatomic, strong) NSArray *appList;
-@property (nonatomic, copy) Success success;//成功回调
+@property (nonatomic, copy) Succ succ;//成功回调
 
 + (AppManager *)sharedInstance;
+- (void)openAppWithBundleId:(NSString *)bunleIdentifier;
 @end

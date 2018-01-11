@@ -12,6 +12,7 @@
 #import "AppModel.h"
 #import <MJRefresh.h>
 #import "UITableView+Fit.h"
+#import "AppManager.h"
 
 @interface AXUpdateViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -25,6 +26,12 @@
     
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    __weak typeof(self)weakSelf = self;
+    AppManager *manager = [AppManager sharedInstance];
+
+    manager.succ = ^(NSArray *arr) {
+        [weakSelf.tableView reloadData];
+    };
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

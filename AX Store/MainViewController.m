@@ -43,7 +43,7 @@
         [self addChildViewController:navigationController];
     }
 
-    
+//    UIColor *textColor = self.view.tintColor;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

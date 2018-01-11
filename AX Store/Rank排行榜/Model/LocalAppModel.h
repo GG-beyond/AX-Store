@@ -9,11 +9,13 @@
 #import "BaseModel.h"
 
 @interface LocalAppModel : BaseModel
-@property (nonatomic, strong) NSString *appIconPath;//图标icon
+@property (nonatomic, strong) NSObject *iconDataForVariant;//图标icon
 @property (nonatomic, strong) NSString *shortVersionString;//版本
 @property (nonatomic, strong) NSString *localizedName;//名称
+@property (nonatomic, strong) NSString *itemName;//app store名称
 @property (nonatomic, strong) NSString *staticDiskUsage;//大小
 @property (nonatomic, strong) NSString *applicationIdentifier;//app buildId 唯一标识
+@property (nonatomic, strong) NSObject *registeredDate;//日期
 @property (nonatomic, strong) NSString *bundleVersion;//更新
 
 @end

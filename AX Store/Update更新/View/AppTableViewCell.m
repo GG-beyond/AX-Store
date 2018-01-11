@@ -8,6 +8,7 @@
 
 #import "AppTableViewCell.h"
 #import "AppModel.h"
+#import "AppManager.h"
 @interface AppTableViewCell ()
 @property (nonatomic, strong) NSDictionary *appInfo;
 
@@ -22,6 +23,7 @@
 
 #pragma mark - method
 - (void)setContentCellWithAppInfo:(id)model{
+    
     AppModel *mod = (AppModel *)model;
     self.appNameLabel.text = mod.buildName;
     self.appDesLabel.text = [NSString stringWithFormat:@"版本 %@，%@MB",mod.buildVersion,[NSString getSize:mod.buildFileSize]];
@@ -33,41 +35,40 @@
     NSString *appKey = [self matchStr:mod.buildIdentifier];
     //多线程请求是否需要更新
     
-    NSInteger buildVersion = [mod.buildBuildVersion integerValue];
-    dispatch_queue_t queue= dispatch_queue_create("update.queue", DISPATCH_QUEUE_CONCURRENT);
-    __weak typeof(self)weakSelf = self;
-    dispatch_async(queue, ^{
+    NSDictionary *dict = [[AppManager sharedInstance] appInfo];
+    if ([dict objectForKey:mod.buildIdentifier]) {
+     
+        NSString *shortVersionString = dict[mod.buildIdentifier][@"bundleVersion"];
+        __weak typeof(self)weakSelf = self;
         NSString *api_key = APIKey;
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         NSDictionary *parameters = @{@"_api_key":api_key,@"appKey":appKey};
-
+        
         [manager POST:@"https://www.pgyer.com/apiv2/app/check" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             NSDictionary *respondDict = (NSDictionary *)responseObject;
             NSInteger status = [respondDict[@"code"] integerValue];
             if (status == 0) {
-                NSInteger buildBuildVersion = [respondDict[@"data"][@"buildBuildVersion"] integerValue];
-                if (buildBuildVersion>buildVersion) {//有更新
+                NSString *buildBuildVersion = respondDict[@"data"][@"buildVersionNo"];
+                if (![buildBuildVersion isEqualToString:shortVersionString]) {//有更新
                     [weakSelf reloadView];
                 }
             }
-
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
         }];
-    });
+        
+    }else{
+        [self.appUpdateButton setTitle:@"下载" forState:UIControlStateNormal];
+    }
     
 }
 - (void)reloadView{
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        self.appUpdateButton.hidden = NO;
-    });
+    [self.appUpdateButton setTitle:@"更新" forState:UIControlStateNormal];
 }
 - (NSDictionary *)appInfo{
     
@@ -91,6 +92,20 @@
         temp = self.appInfo[str];
     }
     return temp;
+}
+- (void)doDownOrUpdate:(UIButton *)sender{
+    
+    NSString *btTitle = [sender currentTitle];
+    if ([btTitle isEqualToString:@"打开"]) {
+        
+        [[AppManager sharedInstance] openAppWithBundleId:@"com.anxindeli.mainApp"];
+    }else if ([btTitle isEqualToString:@"下载"]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/4a01f155aeb4d01a3b5e4d328f37f53a/update/s.plist"]];
+    }else if ([btTitle isEqualToString:@"更新"]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/4a01f155aeb4d01a3b5e4d328f37f53a/update/s.plist"]];
+    }else{
+        
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -21,14 +21,16 @@
     
     AppManager *manager = [AppManager sharedInstance];
     __weak typeof(self)weakSelf = self;
-    manager.success = ^(NSArray *arr) {
+    
+    manager.succ = ^(NSArray *arr) {
         
         if (arr.count>0) {
 
+            [weakSelf.listArr removeAllObjects];
             for (NSDictionary *dic in arr) {
                 
                 LocalAppModel *model = [LocalAppModel modelWithDict:dic];
-                [self.listArr addObject:model];
+                [weakSelf.listArr addObject:model];
             }
             weakSelf.reloadView();
         }
@@ -39,7 +41,16 @@
 - (NSMutableArray *)listArr{
     
     if (!_listArr) {
+        
         _listArr = [NSMutableArray array];
+        
+        AppManager *manager = [AppManager sharedInstance];
+
+        for (NSDictionary *dic in manager.appList) {
+            
+            LocalAppModel *model = [LocalAppModel modelWithDict:dic];
+            [_listArr addObject:model];
+        }
     }
     return _listArr;
     

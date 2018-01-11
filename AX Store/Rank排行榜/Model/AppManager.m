@@ -8,6 +8,7 @@
 
 #import "AppManager.h"
 #import <objc/runtime.h>
+
 @implementation AppManager
 
 + (AppManager *)sharedInstance{
@@ -23,15 +24,18 @@
 }
 - (void)tempMethod{
 
-    dispatch_queue_t queue= dispatch_queue_create("localApp.queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     __weak typeof(self)weakSelf = self;
-    dispatch_async(queue, ^{
+    
+    dispatch_async(globalQueue, ^{
         
         [weakSelf getAppInfo];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            weakSelf.success(weakSelf.appList);
+            if (weakSelf.succ) {
+                weakSelf.succ(weakSelf.appList);
+            }
         });
         
     });
@@ -65,21 +69,17 @@
         
         NSString *shortVersionString = [LSApplicationProxy_class performSelector:@selector(shortVersionString)];
         
-        //--------------------------------------------
-        //图片
-        NSDictionary *boundIconsDictionary = [LSApplicationProxy_class performSelector:@selector(boundIconsDictionary)];
-        NSString *appIconPath = [NSString stringWithFormat:@"%@/%@.png", [[LSApplicationProxy_class performSelector:@selector(resourcesDirectoryURL)] path], [[[boundIconsDictionary objectForKey:@"CFBundlePrimaryIcon"] objectForKey:@"CFBundleIconFiles"] lastObject]];
-        
-        // 判断上述获得的app的图标的路径能不能实例化出图像
-        
-        //-----------------------------------------------
-        
-        
-        
+        NSObject *iconDataForVariant = [LSApplicationProxy_class performSelector:@selector(iconDataForVariant:)withObject:@(2)];
+        NSObject *registeredDate = [LSApplicationProxy_class performSelector:@selector(registeredDate)];
+        NSNumber *itemName = [LSApplicationProxy_class performSelector:@selector(itemName)];
+        NSNumber *staticDiskUsage = [LSApplicationProxy_class performSelector:@selector(staticDiskUsage)];
+        NSObject *localizedName = [LSApplicationProxy_class performSelector:@selector(localizedName)];
+
+        /*
         NSString *teamID = [LSApplicationProxy_class performSelector:@selector(teamID)];
         
-        //        NSArray *groupIdentifiers = [LSApplicationProxy_class performSelector:@selector(groupIdentifiers)];
-        
+         NSObject *localizedShortName = [LSApplicationProxy_class performSelector:@selector(localizedShortName)];
+
         NSInteger originalInstallType = [LSApplicationProxy_class performSelector:@selector(originalInstallType)];
         
         NSInteger installType = [LSApplicationProxy_class performSelector:@selector(installType)];
@@ -90,14 +90,13 @@
         
         NSObject *iconStyleDomain = [LSApplicationProxy_class performSelector:@selector(iconStyleDomain)];
         
-        NSObject *localizedShortName = [LSApplicationProxy_class performSelector:@selector(localizedShortName)];
-        
-        NSObject *localizedName = [LSApplicationProxy_class performSelector:@selector(localizedName)];
-        
+         
         NSObject *privateDocumentTypeOwner = [LSApplicationProxy_class performSelector:@selector(privateDocumentTypeOwner)];
         
         NSObject *privateDocumentIconNames = [LSApplicationProxy_class performSelector:@selector(privateDocumentIconNames)];
         
+        NSArray *groupIdentifiers = [LSApplicationProxy_class performSelector:@selector(groupIdentifiers)];
+
         NSObject *resourcesDirectoryURL = [LSApplicationProxy_class performSelector:@selector(resourcesDirectoryURL)];
         
         NSObject *installProgress = [LSApplicationProxy_class performSelector:@selector(installProgress)];
@@ -108,7 +107,6 @@
         
         NSNumber *dynamicDiskUsage = [LSApplicationProxy_class performSelector:@selector(dynamicDiskUsage)];
         
-        NSNumber *staticDiskUsage = [LSApplicationProxy_class performSelector:@selector(staticDiskUsage)];
         
         NSObject *deviceIdentifierForVendor = [LSApplicationProxy_class performSelector:@selector(deviceIdentifierForVendor)];
         
@@ -133,20 +131,27 @@
         NSString *vendorName = [LSApplicationProxy_class performSelector:@selector(vendorName)];
         
         NSString *sdkVersion = [LSApplicationProxy_class performSelector:@selector(sdkVersion)];
-        
+        */
         NSMutableDictionary *dict = [NSMutableDictionary new];
         
         [dict setValue:applicationIdentifier forKey:@"applicationIdentifier"];
         [dict setValue:version forKey:@"bundleVersion"];
         [dict setValue:shortVersionString forKey:@"shortVersionString"];
+        [dict setValue:localizedName forKey:@"localizedName"];
+        [dict setValue:staticDiskUsage forKey:@"staticDiskUsage"];
+        [dict setValue:itemName forKey:@"itemName"];
+        [dict setValue:iconDataForVariant forKey:@"iconDataForVariant"];
+        [dict setValue:registeredDate forKey:@"registeredDate"];
+
+        /*
         //        [dict setValue:groupIdentifiers forKey:@"groupIdentifiers"];
         [dict setValue:@(originalInstallType) forKey:@"originalInstallType"];
         [dict setValue:@(installType) forKey:@"installType"];
         [dict setValue:itemID forKey:@"itemID"];
+
         [dict setValue:description forKey:@"description"];
         //        [dict setValue:iconStyleDomain forKey:@"iconStyleDomain"];
         [dict setValue:localizedShortName forKey:@"localizedShortName"];
-        [dict setValue:localizedName forKey:@"localizedName"];
         //        [dict setValue:privateDocumentTypeOwner forKey:@"privateDocumentTypeOwner"];
         //        [dict setValue:privateDocumentIconNames forKey:@"privateDocumentIconNames"];
         [dict setValue:resourcesDirectoryURL forKey:@"resourcesDirectoryURL"];
@@ -154,7 +159,6 @@
         [dict setValue:appStoreReceiptURL forKey:@"appStoreReceiptURL"];
         [dict setValue:storeFront forKey:@"storeFront"];
         //        [dict setValue:dynamicDiskUsage forKey:@"dynamicDiskUsage"];
-        [dict setValue:staticDiskUsage forKey:@"staticDiskUsage"];
         [dict setValue:deviceIdentifierForVendor forKey:@"deviceIdentifierForVendor"];
         [dict setValue:requiredDeviceCapabilities forKey:@"requiredDeviceCapabilities"];
         [dict setValue:appTags forKey:@"appTags"];
@@ -168,11 +172,8 @@
         [dict setValue:vendorName forKey:@"vendorName"];
         [dict setValue:applicationType forKey:@"applicationType"];
         [dict setValue:sdkVersion forKey:@"sdkVersion"];
-        
-        if ([UIImage imageWithContentsOfFile:appIconPath]){
-            // 能实例化出图像，则表示该路径上确实存在app图标，接下来的操作...
-            [dict setValue:appIconPath forKey:@"appIconPath"];
-        }
+         */
+
 
         
         [appDict setValue:dict forKey:applicationIdentifier];
@@ -181,5 +182,19 @@
     }
     self.appInfo = appDict;
     self.appList = appArr;
+}
+- (void)openAppWithBundleId:(NSString *)bunleIdentifier{
+    
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    NSObject* workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+
+    //通过applicationIdentifier id。判断是否安装某个APP
+    BOOL isInstall = [workspace performSelector:@selector(applicationIsInstalled:) withObject:bunleIdentifier];
+    if (isInstall) {
+        //通过bundle id。打开一个APP
+        [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:bunleIdentifier];
+    }else{
+        NSLog(@"您还没安装");
+    }
 }
 @end
