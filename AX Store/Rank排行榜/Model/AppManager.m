@@ -197,4 +197,8 @@
         NSLog(@"您还没安装");
     }
 }
+- (void)downloadAppWithUrl:(NSString *)url{
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
 @end

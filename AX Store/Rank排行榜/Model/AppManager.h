@@ -14,6 +14,22 @@ typedef void (^Succ)(NSArray *arr);
 @property (nonatomic, strong) NSArray *appList;
 @property (nonatomic, copy) Succ succ;//成功回调
 
+/**
+ 生成一个实例
+ */
 + (AppManager *)sharedInstance;
+
+/**
+ 通过 bunleIdentifier 打开一个app
+
+ @param bunleIdentifier 应用的唯一标识
+ */
 - (void)openAppWithBundleId:(NSString *)bunleIdentifier;
+
+/**
+ 通过一个地址下载、更新app
+
+ @param url .ipa的地址
+ */
+- (void)downloadAppWithUrl:(NSString *)url;
 @end

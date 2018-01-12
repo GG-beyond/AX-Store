@@ -50,7 +50,14 @@
     AppModel *model = [self.updateViewModel getRowModelWithIndexPath:indexPath];
     if (model) {
         [cell setContentCellWithAppInfo:model];
+        __weak typeof(model)weakMod = model;
+        __weak typeof(self)weakSelf = self;
+
+        cell.back = ^(NSString *status) {
+            [weakSelf operateApp:status model:weakMod];
+        };
     }
+    
     return cell;
 }
 #pragma mark - UITableViewDelegate
@@ -66,6 +73,16 @@
 - (void)doListNewData{
     
     [self.updateViewModel doAppInfoListData];
+}
+- (void)operateApp:(NSString *)status model:(AppModel *)mod{
+    
+    if ([status isEqualToString:@"打开"]) {
+        [[AppManager sharedInstance] openAppWithBundleId:mod.buildIdentifier];
+    }else if ([status isEqualToString:@"更新"] ||[status isEqualToString:@"下载"]){
+        [[AppManager sharedInstance] downloadAppWithUrl:mod.downloadURL];
+    }else{
+        
+    }
 }
 #pragma mark - Set 方法
 - (UITableView *)tableView{

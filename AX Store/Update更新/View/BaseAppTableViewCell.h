@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^BackBlock)(NSString *status);
+
 @interface BaseAppTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *appImageView;
@@ -15,6 +17,7 @@
 @property (nonatomic, strong) UILabel *appDateLabel;
 @property (nonatomic, strong) UIButton *appUpdateButton;
 @property (nonatomic, strong) UIView *bottomLine;
+@property (nonatomic, copy) BackBlock back;
 
 - (void)setContentCellWithAppInfo:(id)model;
 

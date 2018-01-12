@@ -34,12 +34,14 @@
     [self.appImageView sd_setImageWithURL:url placeholderImage:nil];
     NSString *appKey = [self matchStr:mod.buildIdentifier];
     //多线程请求是否需要更新
-    
+
     NSDictionary *dict = [[AppManager sharedInstance] appInfo];
     if ([dict objectForKey:mod.buildIdentifier]) {
      
         NSString *shortVersionString = dict[mod.buildIdentifier][@"bundleVersion"];
         __weak typeof(self)weakSelf = self;
+        __weak typeof(mod)weakMod = mod;
+
         NSString *api_key = APIKey;
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         NSDictionary *parameters = @{@"_api_key":api_key,@"appKey":appKey};
@@ -55,6 +57,7 @@
                 if (![buildBuildVersion isEqualToString:shortVersionString]) {//有更新
                     [weakSelf reloadView];
                 }
+                weakMod.downloadURL = respondDict[@"data"][@"downloadURL"];
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -96,15 +99,8 @@
 - (void)doDownOrUpdate:(UIButton *)sender{
     
     NSString *btTitle = [sender currentTitle];
-    if ([btTitle isEqualToString:@"打开"]) {
-        
-        [[AppManager sharedInstance] openAppWithBundleId:@"com.anxindeli.mainApp"];
-    }else if ([btTitle isEqualToString:@"下载"]){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/4a01f155aeb4d01a3b5e4d328f37f53a/update/s.plist"]];
-    }else if ([btTitle isEqualToString:@"更新"]){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/4a01f155aeb4d01a3b5e4d328f37f53a/update/s.plist"]];
-    }else{
-        
+    if (btTitle && self.back){
+        self.back(btTitle);
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

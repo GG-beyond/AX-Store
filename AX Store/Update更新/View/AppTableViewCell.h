@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 #import "BaseAppTableViewCell.h"
 @interface AppTableViewCell : BaseAppTableViewCell
-
 @end

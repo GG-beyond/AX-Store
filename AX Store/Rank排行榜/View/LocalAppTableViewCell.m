@@ -43,7 +43,10 @@
 }
 - (void)doDownOrUpdate:(UIButton *)sender{
     
-    
+    NSString *btTitle = [sender currentTitle];
+    if (btTitle && self.back){
+        self.back(btTitle);
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

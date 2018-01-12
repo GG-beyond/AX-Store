@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSString *buildKey;//buildKey
 @property (nonatomic, strong) NSString *buildIdentifier;//app buildId 唯一标识
 @property (nonatomic, strong) NSString *buildBuildVersion;//更新
+@property (nonatomic, strong) NSString *downloadURL;//下载地址
+
 @end

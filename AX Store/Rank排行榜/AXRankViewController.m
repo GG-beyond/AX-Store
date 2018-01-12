@@ -9,6 +9,8 @@
 #import "UITableView+Fit.h"
 #import "LocalAppTableViewCell.h"
 #import "LocalViewModel.h"
+#import "LocalAppModel.h"
+#import "AppManager.h"
 @interface AXRankViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LocalViewModel *localViewModel;
@@ -34,8 +36,21 @@
         
         cell = [[LocalAppTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
     }
-    [cell setContentCellWithAppInfo:[self.localViewModel getRowModelWithIndexPath:indexPath]];
+    
+    LocalAppModel *model = [self.localViewModel getRowModelWithIndexPath:indexPath];
+    if (model) {
+        __weak typeof(model)weakMod = model;
+        __weak typeof(self)weakSelf = self;
+        [cell setContentCellWithAppInfo:model];
+        cell.back = ^(NSString *status) {
+            [weakSelf operateApp:status model:weakMod];
+        };
+    }
     return cell;
+}
+- (void)operateApp:(NSString *)status model:(LocalAppModel *)mod{
+    
+    [[AppManager sharedInstance] openAppWithBundleId:mod.applicationIdentifier];
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
